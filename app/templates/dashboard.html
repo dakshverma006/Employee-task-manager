@@ -1,8 +1,19 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container mt-5">
-    <h2>Welcome to Dashboard! ✅</h2>
-    <a href="/logout" class="btn btn-danger">Logout</a>
+<div class="container mt-4">
+    <h2>Admin Dashboard</h2>
+    <hr>
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <a href="/employees" class="btn btn-primary w-100 p-3">👥 Manage Employees</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/tasks" class="btn btn-success w-100 p-3">📋 Manage Tasks</a>
+        </div>
+        <div class="col-md-3">
+            <a href="/logout" class="btn btn-danger w-100 p-3">🚪 Logout</a>
+        </div>
+    </div>
 </div>
 {% endblock %}
