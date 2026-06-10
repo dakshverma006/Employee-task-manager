@@ -1,7 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
-from flask_login import login_required
-from app.models import Employee
-from app import db
+from flask_login import login_required, current_user
+from app.models import Employee, User
+from app import db, bcrypt
 
 employees = Blueprint('employees', __name__)
 
@@ -22,7 +22,9 @@ def add():
         phone = request.form.get('phone')
         address = request.form.get('address')
         designation = request.form.get('designation')
+        password = request.form.get('password')
 
+        # Create Employee
         employee = Employee(
             name=name,
             email=email,
@@ -31,7 +33,18 @@ def add():
             designation=designation
         )
         db.session.add(employee)
+
+        # Create User account for employee
+        hashed_pw = bcrypt.generate_password_hash(password).decode('utf-8')
+        user = User(
+            name=name,
+            email=email,
+            password=hashed_pw,
+            role='employee'
+        )
+        db.session.add(user)
         db.session.commit()
+
         flash('Employee added successfully!', 'success')
         return redirect(url_for('employees.index'))
 

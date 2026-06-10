@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-4">
+    <h4 class="mb-4 fw-bold">👋 Welcome, {{ current_user.name }}!</h4>
+
+    <div class="page-header">
+        <h3>📋 My Tasks</h3>
+    </div>
+
+    <div class="table-card">
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Priority</th>
+                    <th>Due Date</th>
+                    <th>Status</th>
+                    <th>Update Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for task in my_tasks %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td><strong>{{ task.title }}</strong></td>
+                    <td>{{ task.description or '-' }}</td>
+                    <td>
+                        {% if task.priority == 'High' %}
+                            <span class="badge-high">High</span>
+                        {% elif task.priority == 'Medium' %}
+                            <span class="badge-medium">Medium</span>
+                        {% else %}
+                            <span class="badge-low">Low</span>
+                        {% endif %}
+                    </td>
+                    <td>{{ task.due_date.strftime('%d %b %Y') if task.due_date else '-' }}</td>
+                    <td>
+                        {% if task.status == 'Pending' %}
+                            <span class="badge-pending">Pending</span>
+                        {% elif task.status == 'In Progress' %}
+                            <span class="badge-progress">In Progress</span>
+                        {% else %}
+                            <span class="badge-done">Completed</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form method="POST" action="/tasks/status/{{ task.id }}">
+                            <select name="status" class="form-select form-select-sm" onchange="this.form.submit()">
+                                <option {% if task.status == 'Pending' %}selected{% endif %}>Pending</option>
+                                <option {% if task.status == 'In Progress' %}selected{% endif %}>In Progress</option>
+                                <option {% if task.status == 'Completed' %}selected{% endif %}>Completed</option>
+                            </select>
+                        </form>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="7" class="text-center text-muted">No tasks assigned yet</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
