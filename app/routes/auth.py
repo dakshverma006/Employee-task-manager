@@ -27,3 +27,13 @@ def logout():
     logout_user()
     flash('Logged out successfully!', 'success')
     return redirect(url_for('auth.login'))
+@auth.route('/setup-admin')
+def setup_admin():
+    existing = User.query.filter_by(email='admin@test.com').first()
+    if existing:
+        return 'Admin already exists!'
+    hashed_pw = bcrypt.generate_password_hash('admin123').decode('utf-8')
+    admin = User(name='Admin', email='admin@test.com', password=hashed_pw, role='admin')
+    db.session.add(admin)
+    db.session.commit()
+    return 'Admin created! Login with admin@test.com / admin123'
