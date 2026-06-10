@@ -2,17 +2,28 @@
 
 {% block content %}
 <div class="container mt-4">
-    <h2>Admin Dashboard</h2>
-    <hr>
-    <div class="row mt-3">
-        <div class="col-md-3">
-            <a href="/employees" class="btn btn-primary w-100 p-3">👥 Manage Employees</a>
+    <h4 class="mb-4 fw-bold">👋 Welcome, {{ current_user.name }}!</h4>
+    <div class="row g-4">
+        <div class="col-md-4">
+            <a href="/employees" class="dash-card card-purple">
+                <div class="icon">👥</div>
+                <h2>Employees</h2>
+                <p>Manage your team</p>
+            </a>
         </div>
-        <div class="col-md-3">
-            <a href="/tasks" class="btn btn-success w-100 p-3">📋 Manage Tasks</a>
+        <div class="col-md-4">
+            <a href="/tasks" class="dash-card card-green">
+                <div class="icon">📋</div>
+                <h2>Tasks</h2>
+                <p>Create & assign tasks</p>
+            </a>
         </div>
-        <div class="col-md-3">
-            <a href="/logout" class="btn btn-danger w-100 p-3">🚪 Logout</a>
+        <div class="col-md-4">
+            <a href="/logout" class="dash-card card-red">
+                <div class="icon">🚪</div>
+                <h2>Logout</h2>
+                <p>See you soon!</p>
+            </a>
         </div>
     </div>
 </div>

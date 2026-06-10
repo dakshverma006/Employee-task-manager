@@ -1,0 +1,233 @@
+/* ─── Global ─────────────────────────────────── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f0f2f5;
+    min-height: 100vh;
+}
+
+/* ─── Navbar ─────────────────────────────────── */
+.navbar {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+    padding: 15px 30px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.navbar-brand {
+    color: white !important;
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.navbar a {
+    color: rgba(255,255,255,0.85) !important;
+    font-weight: 500;
+}
+
+.navbar a:hover {
+    color: white !important;
+}
+
+/* ─── Login Page ─────────────────────────────── */
+.login-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    width: 100%;
+    max-width: 420px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+}
+
+.login-card h3 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.login-card p {
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.login-card .form-control {
+    border-radius: 10px;
+    padding: 12px 15px;
+    border: 2px solid #eee;
+    font-size: 0.95rem;
+}
+
+.login-card .form-control:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+}
+
+.btn-login {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    width: 100%;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.btn-login:hover {
+    opacity: 0.9;
+    color: white;
+}
+
+/* ─── Dashboard Cards ────────────────────────── */
+.dash-card {
+    border-radius: 16px;
+    padding: 30px;
+    color: white;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    transition: transform 0.2s;
+    text-decoration: none;
+    display: block;
+}
+
+.dash-card:hover {
+    transform: translateY(-5px);
+    color: white;
+}
+
+.dash-card h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.dash-card p {
+    font-size: 1rem;
+    opacity: 0.85;
+    margin: 0;
+}
+
+.dash-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.card-purple { background: linear-gradient(135deg, #667eea, #764ba2); }
+.card-green  { background: linear-gradient(135deg, #11998e, #38ef7d); }
+.card-orange { background: linear-gradient(135deg, #f7971e, #ffd200); }
+.card-red    { background: linear-gradient(135deg, #eb3349, #f45c43); }
+.card-blue   { background: linear-gradient(135deg, #2193b0, #6dd5ed); }
+.card-pink   { background: linear-gradient(135deg, #ee0979, #ff6a00); }
+
+/* ─── Page Header ────────────────────────────── */
+.page-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 16px;
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.page-header h3 {
+    margin: 0;
+    font-weight: 700;
+}
+
+/* ─── Tables ─────────────────────────────────── */
+.table-card {
+    background: white;
+    border-radius: 16px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+}
+
+.table thead th {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    padding: 14px;
+    font-weight: 600;
+}
+
+.table tbody tr:hover {
+    background: #f8f7ff;
+}
+
+.table td {
+    padding: 12px 14px;
+    vertical-align: middle;
+    border-color: #f0f0f0;
+}
+
+/* ─── Buttons ────────────────────────────────── */
+.btn-grad {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 22px;
+    font-weight: 600;
+    transition: opacity 0.2s;
+}
+
+.btn-grad:hover {
+    opacity: 0.9;
+    color: white;
+}
+
+/* ─── Forms ──────────────────────────────────── */
+.form-card {
+    background: white;
+    border-radius: 20px;
+    padding: 35px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+}
+
+.form-card h4 {
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 25px;
+}
+
+.form-control, .form-select {
+    border-radius: 10px;
+    padding: 11px 15px;
+    border: 2px solid #eee;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.15);
+}
+
+/* ─── Badges ─────────────────────────────────── */
+.badge-high     { background: linear-gradient(135deg, #eb3349, #f45c43); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
+.badge-medium   { background: linear-gradient(135deg, #f7971e, #ffd200); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
+.badge-low      { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
+.badge-pending  { background: linear-gradient(135deg, #bdc3c7, #2c3e50); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
+.badge-progress { background: linear-gradient(135deg, #2193b0, #6dd5ed); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
+.badge-done     { background: linear-gradient(135deg, #11998e, #38ef7d); color: white; padding: 5px 12px; border-radius: 20px; font-size: 0.8rem; }
+
+/* ─── Alerts ─────────────────────────────────── */
+.alert {
+    border-radius: 0;
+    border: none;
+    font-weight: 500;
+    text-align: center;
+}
